@@ -12,6 +12,7 @@ namespace Bakery.Models
     public string TreatName { get; set; }
     public string Ingredients { get; set; }
     public string StarRating { get; set; }
+    public virtual ApplicationUser User { get; set; }
     public ICollection<FlavorTreat> JoinEntries { get; set; }
   }
 }

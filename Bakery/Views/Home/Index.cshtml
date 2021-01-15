@@ -29,5 +29,16 @@
 <p>@Html.ActionLink("See all Treats", "Index", "Treats")</p>
 <p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p>
 <br>
-<p>@Html.ActionLink("Create an account", "Index", "Account")</p>
-<p>@Html.ActionLink("Log in", "Login", "Account")</p>
+@if (User.Identity.IsAuthenticated)
+{
+  <p>@Html.ActionLink("Account", "Index", "Account")</p>
+  @using (Html.BeginForm("LogOff", "Account"))
+  {
+      <input type="submit" class="btn btn-default" value="Log out" />
+  }
+}
+else
+{
+  <p>@Html.ActionLink("Sign Up", "Register", "Account")</p>
+  <p>@Html.ActionLink("Log in", "Login", "Account")</p>
+}

@@ -5,8 +5,15 @@
 @using Bakery.Models;
 @model List<Bakery.Models.Flavor>;
 
+@if (User.Identity.IsAuthenticated)
+{
 <h1>Flavors for @User.Identity.Name:</h1>
-
+}
+else
+{
+<h1>Flavors:</h1>
+}
+<hr />
 @if (@Model.Count == 0)
 {
   <h3>No Flavors have been created yet...</h3>

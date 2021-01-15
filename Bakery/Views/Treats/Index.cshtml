@@ -6,7 +6,14 @@
 @using Bakery.Models;
 @model List<Bakery.Models.Treat>;
 
-<h1>Treats</h1>
+@if (User.Identity.IsAuthenticated)
+{
+<h1>Treats for @User.Identity.Name:</h1>
+}
+else
+{
+<h1>Treats:</h1>
+}
 <hr />
 @if (@Model.Count == 0)
 {
