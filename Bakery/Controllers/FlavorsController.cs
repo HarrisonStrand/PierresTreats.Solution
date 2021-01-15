@@ -39,18 +39,18 @@ namespace Bakery.Controllers
       return View(_db.Flavors.OrderByDescending(m=>m.StarRating).ToList());
     }
 
-    // public async Task<IActionResult> SearchBy(string searchString)
-    // {
-    //   ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName", "Ingredients");
-    //   var search = from m in _db.Flavors
-    //     select m;
+    public async Task<IActionResult> SearchBy(string searchString)
+    {
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
+      var search = from m in _db.Flavors
+        select m;
 
-    //   if (!String.IsNullOrEmpty(searchString))
-    //   {
-    //       search = search.Where(s => s.Ingredients.Contains(searchString));
-    //   }
-    //   return View(await search.ToAsyncEnumerable().ToList()); // This line is different and does not require any additional using directives or packages to use
-    // }
+      if (!String.IsNullOrEmpty(searchString))
+      {
+          search = search.Where(s => s.FlavorName.Contains(searchString));
+      }
+      return View(await search.ToAsyncEnumerable().ToList()); // This line is different and does not require any additional using directives or packages to use
+    }
     public ActionResult Create()
     {
       ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");

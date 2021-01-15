@@ -1,9 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Bakery.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+using System;
 
 namespace Bakery.Controllers
 {
@@ -20,7 +25,24 @@ namespace Bakery.Controllers
       List <Treat> model = _db.Treats.ToList();
       return View(model);
     }
+    public ActionResult BestOf()
+    {
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName", "StarRating");
+      return View(_db.Flavors.OrderByDescending(m=>m.StarRating).ToList());
+    }
 
+    public async Task<IActionResult> SearchBy(string searchString)
+    {
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName", "Ingredients");
+      var search = from m in _db.Treats
+        select m;
+
+      if (!String.IsNullOrEmpty(searchString))
+      {
+          search = search.Where(s => s.Ingredients.Contains(searchString));
+      }
+      return View(await search.ToAsyncEnumerable().ToList()); // This line is different and does not require any additional using directives or packages to use
+    }
     public ActionResult Create()
     {
       return View();

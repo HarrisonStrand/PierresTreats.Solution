@@ -10,6 +10,8 @@ namespace Bakery.Models
     }
     public int TreatId { get; set; }
     public string TreatName { get; set; }
+    public string Ingredients { get; set; }
+    public string StarRating { get; set; }
     public ICollection<FlavorTreat> JoinEntries { get; set; }
   }
 }
