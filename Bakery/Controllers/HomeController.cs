@@ -5,7 +5,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace RecipeBook.Controllers
+namespace Bakery.Controllers
 {
   public class HomeController : Controller
   {

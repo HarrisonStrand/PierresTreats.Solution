@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Bakery.Models;
 using System.Threading.Tasks;
 using Bakery.ViewModels;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Bakery.Controllers
 {
@@ -21,7 +23,12 @@ namespace Bakery.Controllers
 
     public ActionResult Index()
     {
-      return View();
+      var treats = _db.Treats.ToList();
+      var flavors = _db.Flavors.ToList();
+      Dictionary<string, object> model = new Dictionary<string, object> {};
+      model.Add("treat", treats);
+      model.Add("flavor", flavors);
+      return View(model);
     }
 
     public IActionResult Register()

@@ -8,7 +8,23 @@
 <hr />
 @if (User.Identity.IsAuthenticated)
 {
-    <p>Hello @User.Identity.Name!</p>
+<p>Hello @User.Identity.Name!</p>
+<p>You have @Model["treat"].Count treats(s).</p>
+<p>You have @Model["flavor"].Count flavors(s).</p>
+<br>
+<h3>List of Treats:</h3>
+<br>
+@foreach(Treat treat in Model["treat"])
+{
+    <li>@Html.ActionLink($"{treat.TreatName}", "Details", "Treats", new { id = treat.TreatId })</li>
+}
+<br>
+<h3>List of Flavors:</h3>
+<br>
+@foreach(Flavor flavor in Model["flavor"])
+{
+    <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", "Flavors", new { id = flavor.FlavorId })</li>
+}
 }
 else
 {
