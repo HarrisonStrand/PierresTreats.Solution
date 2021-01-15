@@ -1,0 +1,47 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Bakery.Models.Flavor
+
+<h4>Create a new Flavor</h4>
+
+@using (Html.BeginForm())
+
+{
+  @Html.LabelFor(model => model.FlavorName)
+  @Html.TextBoxFor(model => model.FlavorName)
+  <br>
+  @Html.LabelFor(model => model.Description)
+  @Html.TextAreaFor(model => model.Description)
+  <br>
+  <br>
+  <br>
+  @Html.Label("Select Rating")
+  <br>
+  @Html.Label("1 Star")
+  @Html.RadioButtonFor(model => model.StarRating, 1)
+  <br>
+  @Html.Label("2 Star")
+  @Html.RadioButtonFor(model => model.StarRating, 2)
+  <br>
+  @Html.Label("3 Star")
+  @Html.RadioButtonFor(model => model.StarRating, 3)
+  <br>
+  @Html.Label("4 Star")
+  @Html.RadioButtonFor(model => model.StarRating, 4)
+  <br>
+  @Html.Label("5 Star")
+  @Html.RadioButtonFor(model => model.StarRating, 5)
+  <br>
+
+  @Html.Label("Select a Treat")
+  @Html.DropDownList("TreatId")
+  <br>
+  
+  <input type="submit" value="Create Recipe" class="btn btn-default" />
+}
+
+
+<p>@Html.ActionLink("Show all Flavors", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

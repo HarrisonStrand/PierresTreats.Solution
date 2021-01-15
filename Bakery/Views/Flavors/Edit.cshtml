@@ -1,0 +1,48 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Bakery.Models.Flavor
+
+<h2>Edit</h2>
+
+<h4>Edit: @Html.DisplayFor(model => model.FlavorName)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.FlavorId)
+
+  @Html.LabelFor(model => model.FlavorName)
+  @Html.EditorFor(model => model.FlavorName)
+
+  @Html.LabelFor(model => model.Description)
+  @Html.TextAreaFor(model => model.Description)
+  <br>
+  <br>
+  @Html.Label("Select Rating")
+  <br>
+  @Html.Label("1 Star")
+  @Html.RadioButtonFor(model => model.StarRating, 1)
+  <br>
+  @Html.Label("2 Star")
+  @Html.RadioButtonFor(model => model.StarRating, 2)
+  <br>
+  @Html.Label("3 Star")
+  @Html.RadioButtonFor(model => model.StarRating, 3)
+  <br>
+  @Html.Label("4 Star")
+  @Html.RadioButtonFor(model => model.StarRating, 4)
+  <br>
+  @Html.Label("5 Star")
+  @Html.RadioButtonFor(model => model.StarRating, 5)
+  <br>
+
+  @Html.Label("Select a Treat")
+  @Html.DropDownList("TreatId")
+
+  <input type="submit" value="Save" class="btn btn-default" />
+  
+}
+
+<p>@Html.ActionLink("Back to Flavors", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

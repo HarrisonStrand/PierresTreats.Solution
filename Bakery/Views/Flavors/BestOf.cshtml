@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+@using Bakery.Models;
+@model List<Bakery.Models.Flavor>;
+
+<h2>Your Flavors from Best to Worst:</h2>
+
+@if (@Model.Count == 0)
+{
+  <h3>No Flavors have been created yet...</h3>
+}
+
+
+
+@foreach(Flavor flavor in Model)
+{
+  <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", new { id = flavor.FlavorId })</li>
+    @using (Html.BeginForm("Delete", "Flavors", FormMethod.Get))
+  {
+    @Html.Hidden("id", @flavor.FlavorId)
+    <input type="submit" value="Remove Flavor" class="btn btn-default"/>
+  }
+}
+
+<p>@Html.ActionLink("Add New Flavor", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

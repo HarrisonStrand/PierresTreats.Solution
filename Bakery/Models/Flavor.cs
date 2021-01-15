@@ -11,6 +11,7 @@ namespace Bakery.Models
     public int FlavorId { get; set; }
     public string FlavorName { get; set; }
     public string StarRating { get; set; }
+    public string Description { get; set; }
     public virtual ApplicationUser User { get; set; }
     public ICollection<FlavorTreat> JoinEntries { get; }
   }

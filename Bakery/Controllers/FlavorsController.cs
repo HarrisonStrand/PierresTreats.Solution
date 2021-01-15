@@ -41,13 +41,13 @@ namespace Bakery.Controllers
 
     public async Task<IActionResult> SearchBy(string searchString)
     {
-      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName", "Description");
       var search = from m in _db.Flavors
         select m;
 
       if (!String.IsNullOrEmpty(searchString))
       {
-          search = search.Where(s => s.FlavorName.Contains(searchString));
+          search = search.Where(s => s.Description.Contains(searchString));
       }
       return View(await search.ToAsyncEnumerable().ToList()); // This line is different and does not require any additional using directives or packages to use
     }

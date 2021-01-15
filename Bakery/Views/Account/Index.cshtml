@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@using System.Security.Claims
+
+<h2>Create an Account with <br> Pierre's Treats!</h2>
+<hr />
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Hello @User.Identity.Name!</p>
+}
+else
+{
+    
+    <p>@Html.ActionLink("Register", "Register")</p>
+    <p>@Html.ActionLink("Log in", "Login")</p>
+}
+@if (User.Identity.IsAuthenticated)
+{
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+        <input type="submit" class="btn btn-default" value="Log out" />
+    }
+}
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

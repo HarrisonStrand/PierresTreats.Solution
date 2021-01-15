@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Bakery.Models;
+@model List<Bakery.Models.Flavor>;
+
+
+@using (Html.BeginForm())
+{
+  <form asp-controller="FlavorsController" asp-action="SearchBy" method="get">
+      <p>
+          Ingredients: <input type="text" name="searchString" />
+          <input type="submit" value="Filter" />
+      </p>
+  </form>
+}
+
+@foreach(Flavor flavor in Model)
+{
+  <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", "Flavors", new { id = flavor.FlavorId })</li>
+}
+
+
+
+
+
+
+
+
+
