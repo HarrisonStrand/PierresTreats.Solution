@@ -6,8 +6,12 @@
 
 <h1>Pierre's Treats!</h1>
 <hr />
-<p>You have @Model["treats"].Count treats(s).</p>
-<p>You have @Model["flavors"].Count flavors(s).</p>
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Logged In As @User.Identity.Name</p>
+}
+<p>You have @Model["treat"].Count treats(s).</p>
+<p>You have @Model["flavor"].Count flavors(s).</p>
 <br>
 <h3>List of Treats:</h3>
 <br>

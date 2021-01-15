@@ -13,12 +13,12 @@ using System;
 namespace Bakery.Controllers
 {
   [Authorize]
-  public class RecipesController : Controller
+  public class FlavorsController : Controller
   {
     private readonly BakeryContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
     
-    public RecipesController(UserManager<ApplicationUser> userManager, BakeryContext db)
+    public FlavorsController(UserManager<ApplicationUser> userManager, BakeryContext db)
     {
       _userManager = userManager;
       _db = db;
