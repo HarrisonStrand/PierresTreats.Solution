@@ -2,40 +2,19 @@
     Layout = "_Layout"; 
 }
 
-@using Bakery.Models
-
 <h2>Your Account with <br> Pierre's Treats!</h2>
 <hr />
 @if (User.Identity.IsAuthenticated)
 {
-<p>Hello @User.Identity.Name!</p>
-<p>You have @Model["treat"].Count treats(s).</p>
-<p>You have @Model["flavor"].Count flavors(s).</p>
-<br>
-<h3>List of Treats:</h3>
-<br>
-@foreach(Treat treat in Model["treat"])
-{
-    <li>@Html.ActionLink($"{treat.TreatName}", "Details", "Treats", new { id = treat.TreatId })</li>
-}
-<br>
-<h3>List of Flavors:</h3>
-<br>
-@foreach(Flavor flavor in Model["flavor"])
-{
-    <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", "Flavors", new { id = flavor.FlavorId })</li>
-}
+    <p>Hello @User.Identity.Name!</p>
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+        <input type="submit" class="btn btn-default" value="Log out" />
+    }
 }
 else
 {
     <p>@Html.ActionLink("Register", "Register")</p>
     <p>@Html.ActionLink("Log in", "Login")</p>
-}
-@if (User.Identity.IsAuthenticated)
-{
-    @using (Html.BeginForm("LogOff", "Account"))
-    {
-        <input type="submit" class="btn btn-default" value="Log out" />
-    }
 }
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

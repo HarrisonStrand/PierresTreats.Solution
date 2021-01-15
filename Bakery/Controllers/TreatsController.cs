@@ -85,12 +85,21 @@ namespace Bakery.Controllers
     public ActionResult Edit(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
       return View(thisTreat);
     }
 
     [HttpPost]
-    public ActionResult Edit(Treat treat)
+    public ActionResult Edit(Treat treat, int FlavorId)
     {
+      if (FlavorId != 0)
+      {
+        var returnedJoin = _db.FlavorTreat.Any(join => join.TreatId == treat.TreatId && join.FlavorId == FlavorId);
+        if (!returnedJoin) 
+        {
+          _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
+        }
+      }
       _db.Entry(treat).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -105,7 +114,7 @@ namespace Bakery.Controllers
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisTreat = _db.Treats.FirstOrDefault(Treat => Treat.TreatId == id);
+      var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
       _db.Treats.Remove(thisTreat);
       _db.SaveChanges();
       return RedirectToAction("Index");

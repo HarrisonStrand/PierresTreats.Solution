@@ -9,7 +9,6 @@
 @if (User.Identity.IsAuthenticated)
 {
     <p>Logged In As @User.Identity.Name</p>
-}
 <p>You have @Model["treat"].Count treats(s).</p>
 <p>You have @Model["flavor"].Count flavors(s).</p>
 <br>
@@ -29,6 +28,7 @@
 <p>@Html.ActionLink("See all Treats", "Index", "Treats")</p>
 <p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p>
 <br>
+}
 @if (User.Identity.IsAuthenticated)
 {
   <p>@Html.ActionLink("Account", "Index", "Account")</p>

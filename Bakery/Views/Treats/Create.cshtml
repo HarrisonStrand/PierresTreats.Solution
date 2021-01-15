@@ -11,6 +11,33 @@
   @Html.LabelFor(model => model.TreatName)
   @Html.TextBoxFor(model => model.TreatName)
 
+  @Html.LabelFor(model => model.Ingredients)
+  @Html.TextBoxFor(model => model.Ingredients)
+  <br>
+  <br>
+  <br>
+  @Html.Label("Select Rating")
+  <br>
+  @Html.Label("1 Star")
+  @Html.RadioButtonFor(model => model.StarRating, 1)
+  <br>
+  @Html.Label("2 Star")
+  @Html.RadioButtonFor(model => model.StarRating, 2)
+  <br>
+  @Html.Label("3 Star")
+  @Html.RadioButtonFor(model => model.StarRating, 3)
+  <br>
+  @Html.Label("4 Star")
+  @Html.RadioButtonFor(model => model.StarRating, 4)
+  <br>
+  @Html.Label("5 Star")
+  @Html.RadioButtonFor(model => model.StarRating, 5)
+  <br>
+
+  @Html.Label("Select a Flavor")
+  @Html.DropDownList("FlavorId")
+  <br>
+
   <input type="submit" value="Add Treat" class="btn btn-default"/>
 }
 
