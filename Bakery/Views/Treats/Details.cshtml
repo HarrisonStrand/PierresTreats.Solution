@@ -19,7 +19,7 @@ else
   <h4><u>Flavors for @Html.DisplayFor(model => model.TreatName)</u></h4>
     @foreach(var join in Model.JoinEntries)
     {
-      <li>@join.Flavor.FlavorName</li>
+      <li style="text-transform: capitalize;">@join.Flavor.FlavorName</li>
       @using (Html.BeginForm("Delete Flavor", "Treats"))
       {
         @Html.Hidden("joinId", @join.FlavorTreatId)

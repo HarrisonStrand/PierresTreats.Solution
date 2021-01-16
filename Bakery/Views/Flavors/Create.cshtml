@@ -1,46 +1,37 @@
 @{
-  Layout = "_Layout";
+  Layout = "_Flavors";
 }
 
 @model Bakery.Models.Flavor
 
-<h4>Create a new Flavor</h4>
+<h2>Create a new Flavor</h2>
 <hr />
-@using (Html.BeginForm())
-
-{
-  @Html.LabelFor(model => model.FlavorName)
-  @Html.TextBoxFor(model => model.FlavorName)
-  <br>
-  @Html.LabelFor(model => model.Description)
-  @Html.TextAreaFor(model => model.Description)
-  <br>
-  <br>
-  <br>
-  @Html.Label("Select Rating")
-  <br>
-  @Html.Label("1 Star")
-  @Html.RadioButtonFor(model => model.StarRating, 1)
-  <br>
-  @Html.Label("2 Star")
-  @Html.RadioButtonFor(model => model.StarRating, 2)
-  <br>
-  @Html.Label("3 Star")
-  @Html.RadioButtonFor(model => model.StarRating, 3)
-  <br>
-  @Html.Label("4 Star")
-  @Html.RadioButtonFor(model => model.StarRating, 4)
-  <br>
-  @Html.Label("5 Star")
-  @Html.RadioButtonFor(model => model.StarRating, 5)
-  <br>
-
-  @Html.Label("Select a Treat")
-  @Html.DropDownList("TreatId")
-  <br>
-  
-  <input type="submit" value="Create Recipe" class="btn btn-default" />
-}
+<div class="forms">
+  @using (Html.BeginForm())
+  {
+    <h6>@Html.Label("Name")</h6>
+    @Html.TextBoxFor(model => model.FlavorName)
+    <br>
+    <h6>@Html.Label("Description")</h6>
+    @Html.TextAreaFor(model => model.Description)
+    <br>
+    <h6>@Html.Label("Select Rating")</h6>
+    @Html.Label("1 Star")
+    @Html.RadioButtonFor(model => model.StarRating, 1)
+    @Html.Label("2 Star")
+    @Html.RadioButtonFor(model => model.StarRating, 2)
+    @Html.Label("3 Star")
+    @Html.RadioButtonFor(model => model.StarRating, 3)
+    @Html.Label("4 Star")
+    @Html.RadioButtonFor(model => model.StarRating, 4)
+    @Html.Label("5 Star")
+    @Html.RadioButtonFor(model => model.StarRating, 5)
+    <h6>@Html.Label("Select a Treat")</h6>
+    @Html.DropDownList("TreatId")
+    <br>
+    <input type="submit" value="Add Flavor" class="btn btn-default"/>
+  }
+</div>
 
 <hr />
 <p>@Html.ActionLink("Show all Flavors", "Index")</p>

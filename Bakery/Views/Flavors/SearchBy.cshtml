@@ -1,10 +1,12 @@
 @{
-  Layout = "_Layout";
+  Layout = "_Flavors";
 }
 
 @using Bakery.Models;
 @model List<Bakery.Models.Flavor>;
 
+<h2>Filter By Keyword</h2>
+<hr />
 
 @using (Html.BeginForm())
 {
@@ -20,12 +22,3 @@
 {
   <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", "Flavors", new { id = flavor.FlavorId })</li>
 }
-
-
-
-
-
-
-
-
-
