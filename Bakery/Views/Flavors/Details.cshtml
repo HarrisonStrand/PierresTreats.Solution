@@ -7,7 +7,7 @@
 <h2>Flavor Details</h2>
 <hr />
 <h3 style="text-transform: capitalize;font-size: 40px;">@Html.DisplayFor(model => model.FlavorName)</h3>
-<h3>@Html.Label("Ingredients"): @Html.DisplayFor(model => model.Description)</h3>
+<h3>@Html.Label("Description"): @Html.DisplayFor(model => model.Description)</h3>
 <h3>@Html.Label("Rating"): @Html.DisplayFor(model => model.StarRating)</h3>
 
   @if(@Model.JoinEntries.Count == 0)
@@ -21,7 +21,7 @@
     {
       <li style="text-transform: capitalize;">@join.Treat.TreatName</li>
       
-      @using (Html.BeginForm("DeleteTreats", "Flavors"))
+      @using (Html.BeginForm("DeleteTreat", "Flavors"))
       {
         @Html.Hidden("joinId", @join.FlavorTreatId)
         <input type="submit" value="Delete"/>
