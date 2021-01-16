@@ -1,48 +1,39 @@
 @{
-  Layout = "_Layout";
+  Layout = "_Treats";
 }
 
 @model Bakery.Models.Treat
 
 <h2>Edit</h2>
+<hr />
+<h3 style="text-transform: capitalize;font-size: 40px;">Edit @Html.DisplayFor(model => model.TreatName)</h3>
 
-<h4>Edit @Html.DisplayFor(model => model.TreatName)</h4>
-
-@using (Html.BeginForm())
-{
-  @Html.HiddenFor(model => model.TreatId)
-
-  @Html.LabelFor(model => model.TreatName)
-  @Html.EditorFor(model => model.TreatName)
-
-  @Html.LabelFor(model => model.Ingredients)
-  @Html.TextBoxFor(model => model.Ingredients)
-  <br>
-  <br>
-  <br>
-  @Html.Label("Select Rating")
-  <br>
-  @Html.Label("1 Star")
-  @Html.RadioButtonFor(model => model.StarRating, 1)
-  <br>
-  @Html.Label("2 Star")
-  @Html.RadioButtonFor(model => model.StarRating, 2)
-  <br>
-  @Html.Label("3 Star")
-  @Html.RadioButtonFor(model => model.StarRating, 3)
-  <br>
-  @Html.Label("4 Star")
-  @Html.RadioButtonFor(model => model.StarRating, 4)
-  <br>
-  @Html.Label("5 Star")
-  @Html.RadioButtonFor(model => model.StarRating, 5)
-  <br>
-
-  @Html.Label("Select a Flavor")
-  @Html.DropDownList("FlavorId")
-  <br>
-  <input type="submit" value="Save" class="btn btn-default" />
-}
-
+<div class="forms">
+  @using (Html.BeginForm())
+  {
+    <h6>@Html.Label("Name")</h6>
+    @Html.TextBoxFor(model => model.TreatName)
+    <br>
+    <h6>@Html.Label("Ingredients")</h6>
+    @Html.TextAreaFor(model => model.Ingredients)
+    <br>
+    <h6>@Html.Label("Select Rating")</h6>
+    @Html.Label("1 Star")
+    @Html.RadioButtonFor(model => model.StarRating, 1)
+    @Html.Label("2 Star")
+    @Html.RadioButtonFor(model => model.StarRating, 2)
+    @Html.Label("3 Star")
+    @Html.RadioButtonFor(model => model.StarRating, 3)
+    @Html.Label("4 Star")
+    @Html.RadioButtonFor(model => model.StarRating, 4)
+    @Html.Label("5 Star")
+    @Html.RadioButtonFor(model => model.StarRating, 5)
+    <h6>@Html.Label("Select a Flavor")</h6>
+    @Html.DropDownList("FlavorId")
+    <br>
+    <input type="submit" value="Add Treat" class="btn btn-default"/>
+  }
+</div>
+<hr />
 <p>@Html.ActionLink("Back to Treats", "Index", "Treats")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

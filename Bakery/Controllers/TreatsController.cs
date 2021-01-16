@@ -33,7 +33,7 @@ namespace Bakery.Controllers
     public ActionResult BestOf()
     {
       ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName", "StarRating");
-      return View(_db.Flavors.OrderByDescending(m=>m.StarRating).ToList());
+      return View(_db.Treats.OrderByDescending(m=>m.StarRating).ToList());
     }
 
     public async Task<IActionResult> SearchBy(string searchString)

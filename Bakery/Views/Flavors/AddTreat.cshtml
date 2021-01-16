@@ -5,7 +5,7 @@
 @model Bakery.Models.Flavor
 
 <h2>Add a Treats</h2>
-
+<hr />
 <h2>Add a Treats for @Html.DisplayFor(model => model.FlavorName)</h2>
 
 @using (Html.BeginForm())
@@ -17,6 +17,6 @@
 
     <input type="submit" value="Save" class="btn btn-default" />
 }
-
+<hr />
 <p>@Html.ActionLink("Back to Flavors", "Index")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

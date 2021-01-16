@@ -15,7 +15,7 @@
       </p>
   </form>
 }
-
+<hr />
 @foreach(Flavor flavor in Model)
 {
   <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", "Flavors", new { id = flavor.FlavorId })</li>

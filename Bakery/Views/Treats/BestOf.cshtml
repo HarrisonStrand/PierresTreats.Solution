@@ -1,11 +1,11 @@
 @{
-  Layout = "_Layout";
+  Layout = "_Treats";
 }
 @using Bakery.Models;
 @model List<Bakery.Models.Treat>;
 
 <h2>Your Treats from Best to Worst:</h2>
-
+<hr />
 @if (@Model.Count == 0)
 {
   <h3>No Treats have been created yet...</h3>
@@ -22,6 +22,7 @@
     <input type="submit" value="Remove Treat" class="btn btn-default"/>
   }
 }
-
+<hr />
+<p>@Html.ActionLink("Back To List", "Index")</p>
 <p>@Html.ActionLink("Add New Treat", "Create")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

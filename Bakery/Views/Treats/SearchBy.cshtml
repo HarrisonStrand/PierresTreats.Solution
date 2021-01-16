@@ -1,5 +1,5 @@
 @{
-  Layout = "_Layout";
+  Layout = "_Treats";
 }
 
 @using Bakery.Models;
@@ -15,7 +15,7 @@
       </p>
   </form>
 }
-
+<hr />
 @foreach(Treat treat in Model)
 {
   <li>@Html.ActionLink($"{treat.TreatName}", "Details", "Treats", new { id = treat.TreatId })</li>

@@ -1,11 +1,11 @@
 @{
-  Layout = "_Layout";
+  Layout = "_Treats";
 }
 
 @model Bakery.Models.Treat
 
 <h2>Add a Treat</h2>
-
+<hr />
 <h4>Add a Flavor to @Html.DisplayFor(model => model.TreatName)</h4>
 
 @using (Html.BeginForm())
@@ -17,6 +17,6 @@
 
   <input type="submit" value="Save"/>
 }
-
+<hr />
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

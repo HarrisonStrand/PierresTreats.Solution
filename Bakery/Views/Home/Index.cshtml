@@ -8,26 +8,44 @@
 <hr />
 @if (User.Identity.IsAuthenticated)
 {
-    <p>Logged In As @User.Identity.Name</p>
-<p>You have @Model["treat"].Count treats(s).</p>
-<p>You have @Model["flavor"].Count flavors(s).</p>
-<br>
-<h3>List of Treats:</h3>
-<br>
-@foreach(Treat treat in Model["treat"])
-{
-  <li>@Html.ActionLink($"{treat.TreatName}", "Details", "Treats", new { id = treat.TreatId })</li>
-}
-<br>
-<h3>List of Flavors:</h3>
-<br>
-@foreach(Flavor flavor in Model["flavor"])
-{
-  <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", "Flavors", new { id = flavor.FlavorId })</li>
-}
-<p>@Html.ActionLink("See all Treats", "Index", "Treats")</p>
-<p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p>
-<br>
+  <h5>Logged In As @User.Identity.Name</h5>
+  <div class="count">
+    @if (@Model["treat"].Count > 1 || @Model["treat"].Count < 1)
+    {
+
+    <p>You have @Model["treat"].Count treats.</p>
+    }
+    else
+    {
+
+    <p>You have @Model["treat"].Count treat.</p>
+    }
+    @if (@Model["flavor"].Count > 1 || @Model["flavor"].Count < 1)
+    {
+
+    <p>You have @Model["flavor"].Count flavors.</p>
+    }
+    else
+    {
+
+    <p>You have @Model["flavor"].Count flavor.</p>
+    }
+  </div>
+  <h3>List of Treats</h3>
+  <hr />
+  @foreach(Treat treat in Model["treat"])
+  {
+    <li>@Html.ActionLink($"{treat.TreatName}", "Details", "Treats", new { id = treat.TreatId })</li>
+  }
+  <br>
+  <h3>List of Flavors</h3>
+  @foreach(Flavor flavor in Model["flavor"])
+  {
+    <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", "Flavors", new { id = flavor.FlavorId })</li>
+  }
+  <hr />
+  <p>@Html.ActionLink("See all Treats", "Index", "Treats")</p>
+  <p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p>
 }
 @if (User.Identity.IsAuthenticated)
 {

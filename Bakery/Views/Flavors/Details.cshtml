@@ -6,9 +6,9 @@
 
 <h2>Flavor Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.FlavorName): @Html.DisplayFor(model => model.FlavorName)</h3>
-<h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
-<h3>@Html.DisplayNameFor(model => model.StarRating): @Html.DisplayFor(model => model.StarRating)</h3>
+<h3 style="text-transform: capitalize;font-size: 40px;">@Html.DisplayFor(model => model.FlavorName)</h3>
+<h3>@Html.Display("Description"): @Html.DisplayFor(model => model.Description)</h3>
+<h3>@Html.Display("Rating"): @Html.DisplayFor(model => model.StarRating)</h3>
 
   @if(@Model.JoinEntries.Count == 0)
   {
@@ -28,8 +28,7 @@
       } 
     }
   }
-
-<p>@Html.ActionLink("Back to Flavor list", "Index")</p>
+<hr />
 <p>@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId})</p>
 <p>@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId })</p>
 <p>@Html.ActionLink("Add a Category", "AddCategory", new { id = Model.FlavorId })</p>

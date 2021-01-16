@@ -1,12 +1,14 @@
 @{
-  Layout = "_Layout";
+  Layout = "_Treats";
 }
 @using Bakery.Models
 @model Bakery.Models.Treat;
 
 <h2>Treat Overview</h2>
 <hr />
-<h3>Treat: @Html.DisplayNameFor(model => model.TreatName): @Html.DisplayFor(model => model.TreatName)</h3>
+<h3 style="text-transform: capitalize;font-size: 40px;">@Html.DisplayFor(model => model.TreatName)</h3>
+<h3>@Html.Label("Ingredients"): @Html.DisplayFor(model => model.Ingredients)</h3>
+<h3>@Html.Label("Rating"): @Html.DisplayFor(model => model.StarRating)</h3>
 
 @if(@Model.JoinEntries.Count == 0)
 {
@@ -25,6 +27,7 @@ else
       } 
     }
 }
+<hr />
 <p>@Html.ActionLink("Edit Treat Information", "Edit", new { id = Model.TreatId })
 <p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</p>
 <p>@Html.ActionLink("Add a Flavor", "AddFlavor", new { id = Model.TreatId })</p>

@@ -5,7 +5,7 @@
 @model List<Bakery.Models.Flavor>;
 
 <h2>Your Flavors from Best to Worst:</h2>
-
+<hr />
 @if (@Model.Count == 0)
 {
   <h3>No Flavors have been created yet...</h3>
@@ -22,6 +22,6 @@
     <input type="submit" value="Remove Flavor" class="btn btn-default"/>
   }
 }
-
+<hr />
 <p>@Html.ActionLink("Add New Flavor", "Create")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
