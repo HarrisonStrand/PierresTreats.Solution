@@ -6,43 +6,36 @@
 
 <h2>Edit</h2>
 <hr />
-<h4>Edit: @Html.DisplayFor(model => model.FlavorName)</h4>
+<h3 style="text-transform: capitalize;font-size: 40px;">Edit @Html.DisplayFor(model => model.FlavorName)</h3>
 
-@using (Html.BeginForm())
-{
-  @Html.HiddenFor(model => model.FlavorId)
+<div class="forms">
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.FlavorId)
 
-  @Html.LabelFor(model => model.FlavorName)
-  @Html.EditorFor(model => model.FlavorName)
-
-  @Html.LabelFor(model => model.Description)
-  @Html.TextAreaFor(model => model.Description)
-  <br>
-  <br>
-  @Html.Label("Select Rating")
-  <br>
-  @Html.Label("1 Star")
-  @Html.RadioButtonFor(model => model.StarRating, 1)
-  <br>
-  @Html.Label("2 Star")
-  @Html.RadioButtonFor(model => model.StarRating, 2)
-  <br>
-  @Html.Label("3 Star")
-  @Html.RadioButtonFor(model => model.StarRating, 3)
-  <br>
-  @Html.Label("4 Star")
-  @Html.RadioButtonFor(model => model.StarRating, 4)
-  <br>
-  @Html.Label("5 Star")
-  @Html.RadioButtonFor(model => model.StarRating, 5)
-  <br>
-
-  @Html.Label("Select a Treat")
-  @Html.DropDownList("TreatId")
-
-  <input type="submit" value="Save" class="btn btn-default" />
-  
-}
+    <h6>@Html.Label("Name")</h6>
+    @Html.TextBoxFor(model => model.FlavorName)
+    <br>
+    <h6>@Html.Label("Description")</h6>
+    @Html.TextAreaFor(model => model.Description)
+    <br>
+    <h6>@Html.Label("Select Rating")</h6>
+    @Html.Label("1 Star")
+    @Html.RadioButtonFor(model => model.StarRating, 1)
+    @Html.Label("2 Star")
+    @Html.RadioButtonFor(model => model.StarRating, 2)
+    @Html.Label("3 Star")
+    @Html.RadioButtonFor(model => model.StarRating, 3)
+    @Html.Label("4 Star")
+    @Html.RadioButtonFor(model => model.StarRating, 4)
+    @Html.Label("5 Star")
+    @Html.RadioButtonFor(model => model.StarRating, 5)
+    <h6>@Html.Label("Select a Treat")</h6>
+    @Html.DropDownList("TreatId")
+    <br>
+    <input type="submit" value="Save" class="btn btn-default"/>
+  }
+</div>
 <hr />
-<p>@Html.ActionLink("Back to Flavors", "Index")</p>
+<p>@Html.ActionLink("Back to Flavorss", "Index")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

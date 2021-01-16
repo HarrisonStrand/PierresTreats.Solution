@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Bakery.Models;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -46,7 +45,7 @@ namespace Bakery.Controllers
       {
           search = search.Where(s => s.Ingredients.Contains(searchString));
       }
-      return View(await search.ToAsyncEnumerable().ToList()); // This line is different and does not require any additional using directives or packages to use
+      return View(await search.ToAsyncEnumerable().ToList());
     }
     public ActionResult Create()
     {
@@ -128,14 +127,14 @@ namespace Bakery.Controllers
     }
 
     [HttpPost]
-    public ActionResult AddFlavor(Flavor flavor, int TreatId)
+    public ActionResult AddFlavor(Treat treat, int FlavorId)
     {
-      if (TreatId != 0)
+      if (FlavorId != 0)
       {
-        var returnedJoin = _db.FlavorTreat.Any(join => join.FlavorId == flavor.FlavorId && join.TreatId == TreatId); 
+        var returnedJoin = _db.FlavorTreat.Any(join => join.TreatId == treat.TreatId && join.FlavorId == FlavorId); 
         if (!returnedJoin) 
         {
-          _db.FlavorTreat.Add(new FlavorTreat() { TreatId = TreatId, FlavorId = flavor.FlavorId });
+          _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
         }
       }
         _db.SaveChanges();

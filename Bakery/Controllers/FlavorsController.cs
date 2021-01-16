@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Bakery.Models;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -49,7 +48,7 @@ namespace Bakery.Controllers
       {
           search = search.Where(s => s.Description.Contains(searchString));
       }
-      return View(await search.ToAsyncEnumerable().ToList()); // This line is different and does not require any additional using directives or packages to use
+      return View(await search.ToAsyncEnumerable().ToList());
     }
     public ActionResult Create()
     {
