@@ -1,4 +1,4 @@
-# **Bakery.Solution**
+# **PierresTreats.Solution**
 Project Initiated: 01-15-2021<br>
 Updated: 01-15-2021
 
@@ -16,8 +16,9 @@ This project was designed to display my comprehension of many to many relationsh
 | US05 | "As a user, I want to be able to delete treats and flavors I don't like or use, so I don't have to see them as choices." | True |
 | US06 | "As a user, I want to rate my treats and flavors, so I know which ones are the best." | True | 
 | US07 | "As a user, I want to list my treats and flavors by highest rated so I can see which ones I like the best." | True |
-| US08 | "As a user, I want to see all treats and flavors that use a certain ingredient, so I can more easily find recipes for the ingredients I have." | True | 
-| US08 | "As a user, I want to be able to login, so I can create treats and flavors for the bakery." | True | 
+| US08 | "As a user, I want to see all treats that use a certain ingredient, so I can more easily find treats with a certain ingredient in mind." | True | 
+| US09 | "As a user, I want to see all flavors that use a certain description, so I can more easily find flavors with a certain description in mind." | True | 
+| US10 | "As a user, I want to be able to login, so I can create treats and flavors for the bakery." | True | 
 
 
 ## **Required for Use**
@@ -115,7 +116,7 @@ Then open MySQL Workbench and select the Local instance 3306 server. You will ne
 1) Copy and paste the following GitHub project link into your web browser's url bar and hit enter/return. https://github.com/HarrisonStrand/PierresTreats.Solution.git
 2) Download a .zip copy the repository by clicking on the large green "Code" button near the upper right corner of the screen.
 3) Right click the .zip file and extract(unzip) it's contents.
-4) Open your computer's terminal/console, and navigate to folder called "__RecipeBook.Solution__". 
+4) Open your computer's terminal/console, and navigate to folder called "__PierresTreats.Solution__". 
 
 
 **Option 2** (via git console/terminal)
@@ -145,8 +146,6 @@ Type the following code and hit enter/return to install the necessary dependenci
 <code>dotnet restore</code>
 
 Once the dependencies have installed, type the following commands into your console, hitting enter/return after each.
-
-<code>dotnet ef migrations add Initial</code>
 
 <code>dotnet ef database update</code>
 
@@ -364,6 +363,7 @@ There are no known bugs
 * C# 7.3
 * .NET Core 2.2
 * Entity
+* Identity
 * Git
 * MySQL
 * CSS
